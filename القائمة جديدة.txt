@@ -4959,53 +4959,6 @@ game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):Fir
 AddButton(Main, {
   Name = "Fuck Love",
   Callback = function()
-     local args = {
-    [1] = "SkateBoard"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-local args = {
-    [1] = "PickingScooterMusicText",
-    [2] = "105663787518318"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-  end
-})
-
-AddButton(Main, {
-  Name = "XhDCyeuej",
-  Callback = function()
-     local args = {
-    [1] = "SkateBoard"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-local args = {
-    [1] = "PickingScooterMusicText",
-    [2] = "127356583789936"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-  end
-})
-
-AddButton(Main, {
-  Name = "Rare Unleakkk 2",
-  Callback = function()
-     local args = {
-    [1] = "SkateBoard"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-local args = {
-    [1] = "PickingScooterMusicText",
-    [2] = "118767914595173"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-  end
-})
 
 AddButton(Main, {
   Name = "Soulless",
@@ -5676,14 +5629,6 @@ AddButton(Main, {
  
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
 local args = {
-    [1] = "PickingScooterMusicText",
-    [2] = "15689443663"
-}
- 
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s"):FireServer(unpack(args))
-  end
-})
-
 
 local Main = MakeTab({Name = "كشفESP"})
 AddSection(Main, {"كشف v1"})
