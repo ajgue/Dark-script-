@@ -90,8 +90,8 @@ game.StarterGui:SetCore("SendNotification", {
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/ajgue/Iiiiiiiiid/refs/heads/main/%D8%AC%D8%A7%D8%B1%D9%8A%20%D8%AA%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D9%87.txt")))()
 MakeWindow({
   Hub = {
-    Title = "DARK HUH",
-    Animation = "DARK HUH"
+    Title = "DARK HUB",
+    Animation = "DARK HUB"
   },
     Key = {
     KeySystem = false,
