@@ -1,3 +1,226 @@
+shared.LoaderTitle = "جارٍ تحميل سكربت المطور سجاد";
+shared.LoaderKeyFrames = {
+    [1] = {
+        1,
+        20
+    },
+    [2] = {
+        2,
+        50
+    },
+    [3] = {
+        3,
+        80
+    },
+    [4] = {
+        2,
+        100
+    }
+};
+local v2 = {
+    LoaderData = {
+        Name = shared.LoaderTitle or "A Loader",
+        Colors = shared.LoaderColors or {
+            Main = Color3.fromRGB(0, 0, 0),
+            Topic = Color3.fromRGB(7, 167, 0),
+            Title = Color3.fromRGB(7, 167, 0),
+            LoaderBackground = Color3.fromRGB(255, 255, 255),
+            LoaderSplash = Color3.fromRGB(150, 0, 0)
+        }
+    },
+    Keyframes = shared.LoaderKeyFrames or {
+        [1] = {
+            1,
+            10
+        },
+        [2] = {
+            2,
+            30
+        },
+        [3] = {
+            3,
+            60
+        },
+        [4] = {
+            2,
+            100
+        }
+    }
+};
+local v3 = {
+    [1] = "",
+    [2] = "",
+    [3] = "",
+    [4] = ""
+};
+function TweenObject(v178, v179, v180)
+    game.TweenService:Create(v178, TweenInfo.new(v179, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), v180):Play();
+end
+function CreateObject(v181, v182)
+    local v183 = Instance.new(v181);
+    local v184;
+    for v416, v417 in pairs(v182) do
+        if (v416 ~= "Parent") then
+            v183[v416] = v417;
+        else
+            v184 = v417;
+        end
+    end
+    v183.Parent = v184;
+    return v183;
+end
+local function v4(v186, v187)
+    local v188 = Instance.new("UICorner");
+    v188.CornerRadius = UDim.new(0, v186);
+    v188.Parent = v187;
+end
+local v5 = CreateObject("ScreenGui", {
+    Name = "Core",
+    Parent = game.CoreGui
+});
+local v6 = CreateObject("Frame", {
+    Name = "Main",
+    Parent = v5,
+    BackgroundColor3 = v2.LoaderData.Colors.Main,
+    BorderSizePixel = 0,
+    ClipsDescendants = true,
+    Position = UDim2.new(0.5, 0, 0.5, 0),
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    Size = UDim2.new(0, 0, 0, 0)
+});
+v4(12, v6);
+local v7 = CreateObject("ImageLabel", {
+    Name = "UserImage",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Image = "rbxassetid://98360849741395",
+    Position = UDim2.new(0, 15, 0, 10),
+    Size = UDim2.new(0, 55, 0, 55)
+});
+v4(25, v7);
+local v8 = CreateObject("TextLabel", {
+    Name = "UserName",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Text = "منور سكربت",
+    Position = UDim2.new(0, 75, 0, 10),
+    Size = UDim2.new(0, 200, 0, 50),
+    Font = Enum.Font.GothamBold,
+    TextColor3 = v2.LoaderData.Colors.Title,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v9 = CreateObject("TextLabel", {
+    Name = "Top",
+    TextTransparency = 1,
+    Parent = v6,
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0, 30, 0, 70),
+    Size = UDim2.new(0, 301, 0, 20),
+    Font = Enum.Font.Gotham,
+    Text = "Loader",
+    TextColor3 = v2.LoaderData.Colors.Topic,
+    TextSize = 10,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v10 = CreateObject("TextLabel", {
+    Name = "Title",
+    Parent = v6,
+    TextTransparency = 1,
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0, 30, 0, 90),
+    Size = UDim2.new(0, 301, 0, 46),
+    Font = Enum.Font.Gotham,
+    RichText = true,
+    Text = "<b>" .. v2.LoaderData.Name .. "</b>",
+    TextColor3 = v2.LoaderData.Colors.Title,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v11 = CreateObject("Frame", {
+    Name = "BG",
+    Parent = v6,
+    AnchorPoint = Vector2.new(0.5, 0),
+    BackgroundTransparency = 1,
+    BackgroundColor3 = v2.LoaderData.Colors.LoaderBackground,
+    BorderSizePixel = 0,
+    Position = UDim2.new(0.5, 0, 0, 70),
+    Size = UDim2.new(0.8500000238418579, 0, 0, 24)
+});
+v4(8, v11);
+local v12 = CreateObject("Frame", {
+    Name = "Progress",
+    Parent = v11,
+    BackgroundColor3 = v2.LoaderData.Colors.LoaderSplash,
+    BackgroundTransparency = 1,
+    BorderSizePixel = 0,
+    Size = UDim2.new(0, 0, 0, 24)
+});
+v4(8, v12);
+local v13 = CreateObject("TextLabel", {
+    Name = "StepLabel",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0.5, 0, 1, - 25),
+    Size = UDim2.new(1, - 20, 0, 20),
+    Font = Enum.Font.Gotham,
+    Text = "",
+    TextColor3 = v2.LoaderData.Colors.Topic,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Center,
+    AnchorPoint = Vector2.new(0.5, 0.5)
+});
+function UpdateStepText(v191)
+    v13.Text = v3[v191] or "" ;
+end
+function UpdatePercentage(v193, v194)
+    TweenObject(v12, 0.5, {
+        Size = UDim2.new(v193 / 100, 0, 0, 24)
+    });
+    UpdateStepText(v194);
+end
+TweenObject(v6, 0.25, {
+    Size = UDim2.new(0, 346, 0, 121)
+});
+wait();
+TweenObject(v9, 0.5, {
+    TextTransparency = 0
+});
+TweenObject(v10, 0.5, {
+    TextTransparency = 0
+});
+TweenObject(v11, 0.5, {
+    BackgroundTransparency = 0
+});
+TweenObject(v12, 0.5, {
+    BackgroundTransparency = 0
+});
+for v195, v196 in pairs(v2.Keyframes) do
+    wait(v196[1]);
+    UpdatePercentage(v196[2], v195);
+end
+UpdatePercentage(100, 4);
+TweenObject(v9, 0.5, {
+    TextTransparency = 1
+});
+TweenObject(v10, 0.5, {
+    TextTransparency = 1
+});
+TweenObject(v11, 0.5, {
+    BackgroundTransparency = 1
+});
+TweenObject(v12, 0.5, {
+    BackgroundTransparency = 1
+});
+wait(0.5);
+TweenObject(v6, 0.25, {
+    Size = UDim2.new(0, 0, 0, 0)
+});
+wait(0.25);
+v5:Destroy();
+
 local args = {
     [1] = "RolePlayName",
     [2] = "\217\133\217\139\216\183\217\144\217\136\217\140\216\177 \216\162\217\132\217\142\216\179\217\144\218\169\217\146\216\177\216\168\217\139\216\170\217\140 \216\179\217\144\216\172\217\145\216\162\216\175\217\141"
@@ -5,93 +228,11 @@ local args = {
 
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
 
-local args = {
-    [1] = "RolePlayBio",
-    [2] = "\196\142\195\131\197\152\208\140 \196\164\199\151\198\129"
-}
-
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
-
-local player = game.Players.LocalPlayer
-local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
-gui.Name = "DeltaWelcome"
-gui.ResetOnSpawn = false
-
-local main = Instance.new("Frame")
-main.Parent = gui
-main.AnchorPoint = Vector2.new(0.5, 0.5)
-main.Position = UDim2.new(0.5, 0, 0.4, 0)
-main.Size = UDim2.new(0, 450, 0, 150)
-main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-main.BackgroundTransparency = 0.2
-main.BorderSizePixel = 0
-main.Visible = false
-
-local corner = Instance.new("UICorner", main)
-corner.CornerRadius = UDim.new(0, 20)
-
--- الأيقونة على اليسار
-local icon = Instance.new("ImageLabel", main)
-icon.Size = UDim2.new(0, 60, 0, 60)
-icon.Position = UDim2.new(0, 10, 0, 10)
-icon.BackgroundTransparency = 1
-icon.Image = "rbxassetid://131337234636792" -- غيّر الـID حسب رغبتك
-
--- النص
-local text = Instance.new("TextLabel", main)
-text.Size = UDim2.new(1, -80, 1, -20)
-text.Position = UDim2.new(0, 80, 0, 10)
-text.BackgroundTransparency = 1
-text.Text = "مطور سكربت سجاد!"
-text.TextColor3 = Color3.new(1, 1, 1)
-text.Font = Enum.Font.GothamBold
-text.TextScaled = true
-text.TextWrapped = true
-text.TextXAlignment = Enum.TextXAlignment.Left
-text.TextYAlignment = Enum.TextYAlignment.Center
-
--- أنميشن الدخول
-main.Visible = true
-main.BackgroundTransparency = 1
-text.TextTransparency = 1
-icon.ImageTransparency = 1
-
-for i = 1, 10 do
-	main.BackgroundTransparency -= 0.08
-	text.TextTransparency -= 0.1
-	icon.ImageTransparency -= 0.1
-	wait(0.03)
-end
-
-wait(5) -- كم ثانية تبقى
-
--- أنميشن الخروج
-for i = 1, 10 do
-	main.BackgroundTransparency += 0.08
-	text.TextTransparency += 0.1
-	icon.ImageTransparency += 0.1
-	wait(0.03)
-end
-
-gui:Destroy()
-wait(0.1)
-game.StarterGui:SetCore("SendNotification", {
-    Title = " جاري تشغيل";
-    Text = "جاري تشغيل"; -- ARAB TEAM
-    Duration = 5;
-})
-wait(0.1)
-game.StarterGui:SetCore("SendNotification", {
-    Title = " المطور سجاد";
-    Text = "المطور سجاد"; -- ARAB TEAM
-    Duration = 5;
-})
-
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/ajgue/Iiiiiiiiid/refs/heads/main/%D8%AC%D8%A7%D8%B1%D9%8A%20%D8%AA%D8%B9%D9%84%D9%85%20%D8%A7%D9%84%D9%87.txt")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/ajgue/Dark-script-/refs/heads/main/GUI%20DARK%20%20(2).txt")))()
 MakeWindow({
   Hub = {
-    Title = "DARK HUB",
-    Animation = "DARK HUB"
+    Title = "DEEP HUB ",
+    Animation = "DEEP HUB"
   },
     Key = {
     KeySystem = false,
@@ -107,6 +248,7 @@ MakeWindow({
     }
   }
 })
+
 MinimizeButton({
   Image = "rbxassetid://98360849741395",
   Size = {50, 50},
@@ -116,34 +258,18 @@ MinimizeButton({
   StrokeColor = Color3.fromRGB(255, 125, 0)
 })
 
-local Main = MakeTab({Name = "معلومات"})
+local Main = MakeTab({Name = "info"})
 AddDiscord(Main, {
-    DiscordLink = "https://t.me/xxx90xxxiii",
+    DiscordLink = "https://t.me/xK_uar",
     DiscordIcon = "rbxassetid://98360849741395",
-    DiscordTitle = "انضم لقناتي لتعرف كلشي جديد",
+    DiscordTitle = "Watch every update in the Telegram ",
     })
-AddDiscord(Main, {
-    DiscordLink = "https://t.me/xxx22zx",
-    DiscordIcon = "rbxassetid://98360849741395",
-    DiscordTitle = "كروبنا",
-    })
-AddButton(Main, {
-  Name = "نسخ حسابي روبلوكس",
-  Callback = function()
-    setclipboard('SAGAD455')
-  end
-})
-AddButton(Main, {
-  Name = "نسخ حسابي تيك توك",
-  Callback = function()
-    setclipboard('8.9v3')
-  end
-})
 
-local Main = MakeTab({Name = "كلشي وكلاشي"})
+
+local Main = MakeTab({Name = "اكسسوارات "})
 
 AddButton(Main, {
-  Name = "رجل مقطوعه ",
+  Name = "رجل مقطوعة ",
   Callback = function()
     local args = {
     [1] = {
@@ -2038,62 +2164,7 @@ game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServ
   end
 })
 
-local Main = MakeTab({Name = "كيم باسات"})
-AddButton(Main, {
-  Name = "شات Premium",
-  Callback = function()
-MakeNotifi({
-  Title = "DARK",
-  Text = "تم صار عندك  شات نجمه حقيقي",
-  Time = 3
-})
- game:GetService("Players").LocalPlayer.PlayersBag.SilverPass.Value = true
-  end
-})
-AddButton(Main, {
-  Name = "نجمة",
-  Callback = function()
- MakeNotifi({
-  Title = "DARK",
-  Text = "تم صار عندك نجمه",
-  Time = 3
-})
-game:GetService("Players").LocalPlayer.PlayersBag.SilverPass.Value = true
-  end
-})
-AddButton(Main, {
-  Name = "نجمه مال اطفال",
-  Callback = function()
- MakeNotifi({
-  Title = "DARK",
-  Text = "تم صار عندك  نجمه مال اطفال ",
-  Time = 3
-})
- game:GetService("Players").LocalPlayer.PlayersBag.FacePass.Value = true
-  end
-})
-AddButton(Main, {
-  Name = "اغاني",
-  Callback = function()
-MakeNotifi({
-  Title = "DARK",
-  Text = "تم صار عندك  اغاني",
-  Time = 3
-})
- game:GetService("Players").LocalPlayer.PlayersBag.MusicPass.Valve = true
-  end
-})
-AddButton(Main, {
-  Name = "Fire",
-  Callback = function()
-MakeNotifi({
-  Title = "DARK",
-  Text = "تم صار عندك  Fire",
-  Time = 3
-})
- game:GetService("Players").LocalPlayer.PlayersBag.FirePass.Valve = true
-  end
-})
+
 local Main = MakeTab({Name = "البيت | House"})
 
 AddButton(Main, {
@@ -8391,3 +8462,502 @@ game:GetService("ReplicatedStorage").Remotes.Wear:InvokeServer(unpack(args))
 
   end
 })
+local Main = MakeTab({Name = "الجو"})
+
+local Dropdown = AddDropdown(Main, {
+    Name = "اختر الطقس",
+    Options = {
+        "☀️ مشمس", "🌙 قمر", "🌧️ مطر", "❄️ ثلج",
+        "⛈️ عاصفة", "🌫️ ضباب", "🌪️ إعصار",
+        "🔥 شمس قوية", "🌧️ مطر + برق", "🌈 قوس قزح",
+        "💨 رياح", "🌤️ غيوم جزئية"
+    },
+    Default = "☀️ مشمس",
+    Callback = function(Value)
+        print("تم اختيار الطقس:", Value)
+
+        local Lighting = game.Lighting
+        local Terrain = workspace.Terrain
+        local Sounds = workspace:FindFirstChild("WeatherSounds") or Instance.new("Folder", workspace)
+        Sounds.Name = "WeatherSounds"
+        Sounds:ClearAllChildren()
+        Lighting:ClearAllChildren()
+        Lighting.FogEnd = 100000
+        Lighting.Brightness = 2
+        Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+
+        for _, v in pairs(Terrain:GetChildren()) do
+            if v:IsA("ParticleEmitter") then v:Destroy() end
+        end
+
+        if Value == "☀️ مشمس" then
+            local sky = Instance.new("Sky", Lighting)
+            sky.SkyboxBk = "rbxassetid://7018684000"
+            sky.SkyboxDn = "rbxassetid://7018684000"
+            sky.SkyboxFt = "rbxassetid://7018684000"
+            sky.SkyboxLf = "rbxassetid://7018684000"
+            sky.SkyboxRt = "rbxassetid://7018684000"
+            sky.SkyboxUp = "rbxassetid://7018684000"
+
+        elseif Value == "🌙 قمر" then
+            local sky = Instance.new("Sky", Lighting)
+            sky.SkyboxBk = "rbxassetid://159454299"
+            sky.SkyboxDn = "rbxassetid://159454299"
+            sky.SkyboxFt = "rbxassetid://159454299"
+            sky.SkyboxLf = "rbxassetid://159454299"
+            sky.SkyboxRt = "rbxassetid://159454299"
+            sky.SkyboxUp = "rbxassetid://159454299"
+
+        elseif Value == "🌧️ مطر" then
+            local rain = Instance.new("ParticleEmitter", Terrain)
+            rain.Texture = "rbxassetid://484289329"
+            rain.Rate = 1000
+            rain.Lifetime = NumberRange.new(0.5, 1)
+            rain.Speed = NumberRange.new(50, 70)
+            rain.Size = NumberSequence.new(0.5)
+            rain.VelocitySpread = 180
+            local rainSound = Instance.new("Sound", Sounds)
+            rainSound.SoundId = "rbxassetid://9118823107"
+            rainSound.Looped = true
+            rainSound.Volume = 1.5
+            rainSound:Play()
+
+        elseif Value == "❄️ ثلج" then
+            local snow = Instance.new("ParticleEmitter", Terrain)
+            snow.Texture = "rbxassetid://243660364"
+            snow.Rate = 600
+            snow.Lifetime = NumberRange.new(2, 4)
+            snow.Speed = NumberRange.new(5, 15)
+            snow.Size = NumberSequence.new(0.6)
+            snow.VelocitySpread = 180
+
+        elseif Value == "⛈️ عاصفة" then
+            local sky = Instance.new("Sky", Lighting)
+            sky.SkyboxBk = "rbxassetid://7488801219"
+            sky.SkyboxDn = "rbxassetid://7488801219"
+            sky.SkyboxFt = "rbxassetid://7488801219"
+            sky.SkyboxLf = "rbxassetid://7488801219"
+            sky.SkyboxRt = "rbxassetid://7488801219"
+            sky.SkyboxUp = "rbxassetid://7488801219"
+            Lighting.FogColor = Color3.fromRGB(50, 50, 50)
+            Lighting.FogEnd = 200
+            local thunder = Instance.new("Sound", Sounds)
+            thunder.SoundId = "rbxassetid://138081500"
+            thunder.Looped = true
+            thunder.Volume = 1.5
+            thunder:Play()
+
+        elseif Value == "🌫️ ضباب" then
+            Lighting.FogColor = Color3.fromRGB(180, 180, 180)
+            Lighting.FogEnd = 50
+
+        elseif Value == "🌪️ إعصار" then
+            local tornado = Instance.new("ParticleEmitter", Terrain)
+            tornado.Texture = "rbxassetid://6989112479"
+            tornado.Rate = 500
+            tornado.Lifetime = NumberRange.new(1, 3)
+            tornado.Speed = NumberRange.new(50, 100)
+            tornado.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 3), NumberSequenceKeypoint.new(1, 0)})
+            tornado.VelocitySpread = 360
+            local windSound = Instance.new("Sound", Sounds)
+            windSound.SoundId = "rbxassetid://1843521321"
+            windSound.Looped = true
+            windSound.Volume = 2
+            windSound:Play()
+
+        elseif Value == "🔥 شمس قوية" then
+            Lighting.Brightness = 5
+            Lighting.OutdoorAmbient = Color3.fromRGB(255, 180, 100)
+
+        elseif Value == "🌧️ مطر + برق" then
+            local rain = Instance.new("ParticleEmitter", Terrain)
+            rain.Texture = "rbxassetid://484289329"
+            rain.Rate = 1000
+            rain.Lifetime = NumberRange.new(0.5, 1)
+            rain.Speed = NumberRange.new(50, 70)
+            rain.Size = NumberSequence.new(0.5)
+            rain.VelocitySpread = 180
+            local rainSound = Instance.new("Sound", Sounds)
+            rainSound.SoundId = "rbxassetid://9118823107"
+            rainSound.Looped = true
+            rainSound.Volume = 1.5
+            rainSound:Play()
+            spawn(function()
+                while true do
+                    wait(math.random(5, 15))
+                    Lighting.Brightness = 10
+                    wait(0.1)
+                    Lighting.Brightness = 2
+                end
+            end)
+
+        elseif Value == "🌈 قوس قزح" then
+            local rainbow = Instance.new("Sky", Lighting)
+            rainbow.SkyboxBk = "rbxassetid://7214419019"
+            rainbow.SkyboxDn = "rbxassetid://7214419019"
+            rainbow.SkyboxFt = "rbxassetid://7214419019"
+            rainbow.SkyboxLf = "rbxassetid://7214419019"
+            rainbow.SkyboxRt = "rbxassetid://7214419019"
+            rainbow.SkyboxUp = "rbxassetid://7214419019"
+
+        elseif Value == "💨 رياح" then
+            local windSound = Instance.new("Sound", Sounds)
+            windSound.SoundId = "rbxassetid://1843521321"
+            windSound.Looped = true
+            windSound.Volume = 2
+            windSound:Play()
+
+        elseif Value == "🌤️ غيوم جزئية" then
+            local sky = Instance.new("Sky", Lighting)
+            sky.SkyboxBk = "rbxassetid://7018684000"
+            sky.SkyboxDn = "rbxassetid://7018684000"
+            sky.SkyboxFt = "rbxassetid://7018684000"
+            sky.SkyboxLf = "rbxassetid://7018684000"
+            sky.SkyboxRt = "rbxassetid://7018684000"
+            sky.SkyboxUp = "rbxassetid://7018684000"
+        end
+    end
+})
+AddSection(Main, {"ادوات تنقل"})
+AddButton(Main, {
+  Name = "اداة تنقل وين متريد توديك",
+  Callback = function()
+    local player = game.Players.LocalPlayer
+    local mouse = player:GetMouse()
+
+    local connection
+    local function enableClickTeleport()
+      
+      if connection then
+        connection:Disconnect()
+      end
+
+      connection = mouse.Button1Down:Connect(function()
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+          local hit = mouse.Hit
+          if hit then
+            local targetPos = hit.p + Vector3.new(0, 3, 0)
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(targetPos)
+          end
+        end
+      end)
+    end
+
+
+
+    enableClickTeleport()
+
+    
+    player.CharacterAdded:Connect(function()
+      wait(0.2)
+      enableClickTeleport()
+    end)
+  end
+})
+AddButton(Main, {
+  Name = "تنقل غوكو ",
+  Callback = function()
+    local player = game.Players.LocalPlayer
+    local mouse = player:GetMouse()
+    local TweenService = game:GetService("TweenService")
+
+    local function fadeCharacter(char, toTransparency, duration)
+      for _, v in pairs(char:GetDescendants()) do
+        if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
+          TweenService:Create(v, TweenInfo.new(duration), {Transparency = toTransparency}):Play()
+        end
+      end
+    end
+
+    local function createSpeedLines(position)
+      local part = Instance.new("Part")
+      part.Size = Vector3.new(1, 1, 1)
+      part.Anchored = true
+      part.CanCollide = false
+      part.Transparency = 1
+      part.Position = position
+      part.Parent = workspace
+
+      local emitter = Instance.new("ParticleEmitter", part)
+      emitter.Texture = "rbxassetid://12550725846"
+      emitter.Rate = 300
+      emitter.Lifetime = NumberRange.new(0.3)
+      emitter.Speed = NumberRange.new(20)
+      emitter.Size = NumberSequence.new({
+        NumberSequenceKeypoint.new(0, 0.5),
+        NumberSequenceKeypoint.new(1, 2)
+      })
+      emitter.Transparency = NumberSequence.new({
+        NumberSequenceKeypoint.new(0, 0.1),
+        NumberSequenceKeypoint.new(1, 1)
+      })
+      emitter.Color = ColorSequence.new(Color3.fromRGB(255, 255, 255))
+      emitter.SpreadAngle = Vector2.new(360, 360)
+      emitter.LightEmission = 1
+      emitter.Parent = part
+
+      game:GetService("Debris"):AddItem(part, 1)
+    end
+
+    local function createTeleportTool()
+      local tool = Instance.new("Tool")
+      tool.RequiresHandle = false
+      tool.Name = "تنقل غوكو"
+
+      tool.Activated:Connect(function()
+        if not mouse.Hit then return end
+        local char = player.Character
+        if not char or not char:FindFirstChild("HumanoidRootPart") then return end
+
+        local fromPos = char.HumanoidRootPart.Position
+        local toPos = mouse.Hit.p + Vector3.new(0, 3, 0)
+
+       
+        fadeCharacter(char, 1, 0.3)
+        createSpeedLines(fromPos)
+
+        wait(0.35)
+        char.HumanoidRootPart.CFrame = CFrame.new(toPos)
+        createSpeedLines(toPos)
+
+        
+        fadeCharacter(char, 0, 0.3)
+      end)
+
+      tool.Parent = player.Backpack
+    end
+
+    createTeleportTool()
+
+    player.CharacterAdded:Connect(function()
+      wait(0.2)
+      createTeleportTool()
+    end)
+  end
+})
+AddButton(Main, {
+  Name = "تنقل غوكو",
+  Callback = function()
+    local player = game.Players.LocalPlayer
+    local mouse = player:GetMouse()
+    local TweenService = game:GetService("TweenService")
+    local Debris = game:GetService("Debris")
+
+    local function fadeCharacter(char, toTransparency, duration)
+      for _, v in pairs(char:GetDescendants()) do
+        if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
+          TweenService:Create(v, TweenInfo.new(duration), {Transparency = toTransparency}):Play()
+        end
+      end
+    end
+
+    local function createSharinganEffect(position)
+      local part = Instance.new("Part")
+      part.Size = Vector3.new(3, 3, 0.1)
+      part.Anchored = true
+      part.CanCollide = false
+      part.Transparency = 1
+      part.Position = position
+      part.Orientation = Vector3.new(90, 0, 0)
+      part.Parent = workspace
+
+      local decal = Instance.new("Decal", part)
+      decal.Texture = "rbxassetid://15978535093"
+      decal.Face = Enum.NormalId.Top
+      decal.Transparency = 0
+
+      
+      local light = Instance.new("PointLight", part)
+      light.Color = Color3.fromRGB(255, 0, 0)
+      light.Brightness = 2
+      light.Range = 8
+
+      Debris:AddItem(part, 1
+    end
+
+    local function createTeleportTool()
+      local tool = Instance.new("Tool")
+      tool.RequiresHandle = false
+      tool.Name = "تنقل غوكو"
+
+      tool.Activated:Connect(function()
+        if not mouse.Hit then return end
+        local char = player.Character
+        if not char or not char:FindFirstChild("HumanoidRootPart") then return end
+
+        local fromPos = char.HumanoidRootPart.Position
+        local toPos = mouse.Hit.p + Vector3.new(0, 3, 0)
+
+        fadeCharacter(char, 1, 0.3)
+        createSharinganEffect(fromPos)
+
+        wait(0.35)
+        char.HumanoidRootPart.CFrame = CFrame.new(toPos)
+        createSharinganEffect(toPos)
+
+        fadeCharacter(char, 0, 0.3)
+      end)
+
+      tool.Parent = player.Backpack
+    end
+
+    createTeleportTool()
+
+    player.CharacterAdded:Connect(function()
+      wait(0.2)
+      createTeleportTool()
+    end)
+  end
+})
+AddButton(Main, {
+    Name = "🚀 تنقل غوكو (احترافي)",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local mouse = player:GetMouse()
+        local TweenService = game:GetService("TweenService")
+        local Debris = game:GetService("Debris")
+
+        local function fadeCharacter(char, toTransparency, duration)
+            for _, v in pairs(char:GetDescendants()) do
+                if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then
+                    TweenService:Create(v, TweenInfo.new(duration), {Transparency = toTransparency}):Play()
+                end
+            end
+        end
+
+        local function createSpeedLines(position)
+            local part = Instance.new("Part")
+            part.Size = Vector3.new(1, 1, 1)
+            part.Anchored = true
+            part.CanCollide = false
+            part.Transparency = 1
+            part.Position = position
+            part.Parent = workspace
+
+            local emitter = Instance.new("ParticleEmitter")
+            emitter.Texture = "rbxassetid://12550725846"
+            emitter.Rate = 400
+            emitter.Lifetime = NumberRange.new(0.4)
+            emitter.Speed = NumberRange.new(25, 35)
+            emitter.Size = NumberSequence.new({
+                NumberSequenceKeypoint.new(0, 0.5),
+                NumberSequenceKeypoint.new(1, 3)
+            })
+            emitter.Transparency = NumberSequence.new({
+                NumberSequenceKeypoint.new(0, 0.1),
+                NumberSequenceKeypoint.new(1, 1)
+            })
+            emitter.Color = ColorSequence.new(Color3.fromRGB(255, 255, 255))
+            emitter.SpreadAngle = Vector2.new(360, 360)
+            emitter.LightEmission = 1
+            emitter.Parent = part
+
+            Debris:AddItem(part, 1)
+        end
+
+        local function playTeleportSound(position)
+            local soundPart = Instance.new("Part")
+            soundPart.Anchored = true
+            soundPart.CanCollide = false
+            soundPart.Transparency = 1
+            soundPart.Position = position
+            soundPart.Parent = workspace
+
+            local sound = Instance.new("Sound")
+            sound.SoundId = "rbxassetid://9118823105" -- غيّره لصوت Goku إن أحببت
+            sound.Volume = 2
+            sound.PlayOnRemove = true
+            sound.Parent = soundPart
+            sound:Destroy()
+
+            Debris:AddItem(soundPart, 1)
+        end
+
+        local function flashEffect(position)
+            local flash = Instance.new("Part")
+            flash.Size = Vector3.new(6, 6, 6)
+            flash.Shape = Enum.PartType.Ball
+            flash.Anchored = true
+            flash.CanCollide = false
+            flash.Color = Color3.fromRGB(255, 255, 0)
+            flash.Material = Enum.Material.Neon
+            flash.Transparency = 0.5
+            flash.Position = position
+            flash.Parent = workspace
+
+            TweenService:Create(flash, TweenInfo.new(0.3), {
+                Transparency = 1,
+                Size = Vector3.new(10, 10, 10)
+            }):Play()
+
+            Debris:AddItem(flash, 0.5)
+        end
+
+        local function createTeleportTool()
+            local tool = Instance.new("Tool")
+            tool.RequiresHandle = false
+            tool.Name = "🚀 تنقل غوكو"
+
+            tool.Activated:Connect(function()
+                local hit = mouse.Hit
+                if not hit then return end
+
+                local char = player.Character
+                if not char or not char:FindFirstChild("HumanoidRootPart") or not char:FindFirstChild("Humanoid") then return end
+                if char.Humanoid.Health <= 0 then return end
+
+                local fromPos = char.HumanoidRootPart.Position
+                local toPos = hit.Position + Vector3.new(0, 3, 0)
+
+                -- تأثيرات قبل النقل
+                fadeCharacter(char, 1, 0.3)
+                createSpeedLines(fromPos)
+                flashEffect(fromPos)
+                playTeleportSound(fromPos)
+
+                task.wait(0.35)
+
+                -- النقل
+                char.HumanoidRootPart.CFrame = CFrame.new(toPos)
+
+                -- تأثيرات بعد النقل
+                createSpeedLines(toPos)
+                flashEffect(toPos)
+                playTeleportSound(toPos)
+                fadeCharacter(char, 0, 0.3)
+            end)
+
+            -- واجهة إزالة الأداة
+            local screenGui = player.PlayerGui:FindFirstChild("GokuTeleportGui")
+            if not screenGui then
+                screenGui = Instance.new("ScreenGui")
+                screenGui.Name = "GokuTeleportGui"
+                screenGui.ResetOnSpawn = false
+                screenGui.Parent = player.PlayerGui
+            end
+
+            local removeToolButton = Instance.new("TextButton")
+            removeToolButton.Size = UDim2.new(0, 120, 0, 30)
+            removeToolButton.Position = UDim2.new(0, 10, 0, 10)
+            removeToolButton.Text = "🗑️ إزالة الأداة"
+            removeToolButton.BackgroundColor3 = Color3.fromRGB(255, 85, 85)
+            removeToolButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            removeToolButton.Parent = screenGui
+
+            removeToolButton.MouseButton1Click:Connect(function()
+                tool:Destroy()
+                removeToolButton:Destroy()
+            end)
+
+            tool.Parent = player.Backpack
+        end
+
+        createTeleportTool()
+
+        player.CharacterAdded:Connect(function()
+            task.wait(0.2)
+            createTeleportTool()
+        end)
+    end
+})
+
